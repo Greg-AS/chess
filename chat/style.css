@@ -1,0 +1,15 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+}
+
+#przyklad {
+	margin: 0;
+	padding: 0;
+	width: 40%;
+	float: left;
+}

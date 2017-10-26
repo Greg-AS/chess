@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="chat.css" rel="stylesheet" type="text/css">
+<script src="js/p5.min.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="chat.js"></script>
+<script src="chess.js"></script>
+<script src="figury.js"></script>
+<script src="mysz.js"></script>
+<script src="ruch.js"></script>
+<script src="szach.js"></script>
+<script>
+    $(function() // document ready
+    {
+		okno();
+      chat();
+
+    });
+</script>
+
+<title>GregAS.pl Chat</title>
+</head>
+<body>
+	<div id="content">
+
+		<div id="przyklad">
+			<div id="chat">
+
+				<div id="receiver">
+					<ul id="messages"></ul>
+					<ul id="onl">ONLINE</ul>
+				</div>
+
+				<div id="bottomMenu">
+					<input type='text' class="adds" id="login" value='nick' />
+					<input type='text' id="m" value='' />
+				</div>
+			</div>
+		</div>
+
+		<div id="battleg">
+		</div>
+	</div>
+
+</body>
+</html>

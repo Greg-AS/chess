@@ -1,0 +1,93 @@
+#chat {
+	width: 100%;
+	height: 100%;
+}
+
+#bottomMenu {
+	background: #000;
+	position: relative;
+	width: 100%;
+	height: 10%;
+}
+
+#m {
+	font: 75% Helvetica, Arial;
+	position: relative;
+	text-align: left;
+	width: 80%;
+	height: 100%;
+	float: left;
+}
+
+.adds {
+	font: 75% Helvetica, Arial;
+	position: relative;
+	text-align: center;
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+
+#receiver {
+	font: 75% Helvetica, Arial;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	height: 90%
+}
+
+#messages {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 80%;
+	float: left;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.they {
+	padding: 5px 10px;
+	width: 100%;
+	background: #f3f8cb;
+	height: 4%;
+}
+
+.they:nth-child(odd) {
+	background: #e9f39c;
+	width: 100%;
+	height: 4%;
+}
+
+.you {
+	background: #81ceff;
+	text-align: right;
+	height: 4%;
+}
+
+#onl {
+	border: 0;
+	padding: 0;
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+
+.onl {
+	background: #ad7fa8;
+	text-align: right;
+}
+
+.onl2 {
+	background: #8ae234;
+	text-align: right;
+}
+
+.error {
+	background: #a40000;
+	text-align: right;
+}
+.play {
+	background: #c17d11;
+	text-align: center;
+}

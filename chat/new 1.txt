@@ -1,0 +1,101 @@
+	function ruchPiona(rnowaPosL, rnowaPosP, rstaraPos, typo, usu, rnowaPos) {
+		console.log('usu: '+usu);
+		console.log('rnowaPos: '+rnowaPos);
+		switch (typo) {
+		case 'p':	
+			if (usu == 0){
+				if (figury[rstaraPos].kolor >200) { //bialy
+					if (rnowaPosL == figury[rstaraPos].linia+1) {
+							var tempp = figury[rstaraPos].linia +1;
+							figury[rstaraPos].linia = tempp;
+						
+							wybor = false;
+							socket.emit('piony', figury);
+					}
+				} else	{
+					if (rnowaPosL == figury[rstaraPos].linia -1) {
+							var tempp = figury[rstaraPos].linia -1;
+							figury[rstaraPos].linia = tempp;
+						
+							wybor = false;
+							socket.emit('piony', figury);
+					}
+				}
+			}else {
+				if (figury[rstaraPos].kolor >200) { //bialy bije
+					if (rnowaPosL == figury[rstaraPos].linia+1 && (rnowaPosP == figury[rstaraPos].pole+1 || rnowaPosP == figury[rstaraPos].pole-1)) {
+							var tempp = figury[rstaraPos].linia +1;
+							figury[rstaraPos].linia = tempp;
+							if (rnowaPosP == figury[rstaraPos].pole+1) {
+									figury.splice(rnowaPos);
+									var temppo = figury[rstaraPos].pole +1;
+									figury[rstaraPos].pole = temppo;
+									wybor = false;
+									usuniecie = 0;
+									socket.emit('piony', figury);
+							} else {
+									figury.splice(rnowaPos);
+									var temppo = figury[rstaraPos].pole -1;
+									figury[rstaraPos].pole = temppo;
+									wybor = false;
+									usuniecie = 0;
+									socket.emit('piony', figury);
+							}
+					}
+				} else	{ //czarny bije
+					if (rnowaPosL == figury[rstaraPos].linia-1 && (rnowaPosP == figury[rstaraPos].pole+1 || rnowaPosP == figury[rstaraPos].pole-1)) {
+							var tempp = figury[rstaraPos].linia -1;
+							figury[rstaraPos].linia = tempp;
+							if (rnowaPosP == figury[rstaraPos].pole+1) {
+									figury.splice(rnowaPos);
+									var temppo = figury[rstaraPos].pole +1;
+									figury[rstaraPos].pole = temppo;
+									wybor = false;
+									usuniecie = 0;
+									socket.emit('piony', figury);
+							} else {
+									figury.splice(rnowaPos);
+									var temppo = figury[rstaraPos].pole -1;
+									figury[rstaraPos].pole = temppo;
+									wybor = false;
+									usuniecie = 0;
+									socket.emit('piony', figury);
+							}
+					}
+				}	
+			}
+		break;
+		default: wybor=false; break;
+				
+		}
+	}
+	
+			//wybieranie
+		if (wybor == false) {
+			for (var i=0; i<figury.length; i++) {
+				if (posb == figury[i].linia && posa == figury[i].pole) {
+					staraPos = i;
+					typo = figury[i].typ;
+
+					wybor = true;
+					break;
+				}
+			}
+		}  else {
+					nowaPosL = posb;
+					nowaPosP = posa;
+					for (var i = 0; i < figury.length; i++) {
+						if (nowaPosL == figury[i].linia && nowaPosP == figury[i].pole) { //zajetosc
+							if (figury[i].kolor == figury[staraPos].kolor) {
+							staraPos = i;
+							wybor = true;
+							} else {
+								nowaPos = i;
+								usuniecie = 1;
+							}
+						}
+					}
+					
+					ruchPiona(nowaPosL, nowaPosP, staraPos, typo, usuniecie, nowaPos);
+				}
+		
